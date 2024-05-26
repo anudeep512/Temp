@@ -1,0 +1,148 @@
+Current focused Time Entites:
+
+A) Start Date
+   End Date
+
+B) Date period
+   - today
+   - yesterday
+   - 2 days ago
+   - 1 week ago
+   - June 6th 2024
+   - day before yesterday
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q: What was the total notional traded on May 13 for GSET in apac?
+P: DateFrom: 2024-05-13, DateTo: 2024-05-13, BusinessLine: GSET, region: apac
+
+Q: What was the total notional volume traded on May 13 for GSET in apac?
+P: DateFrom: 2024-05-13, DateTo: 2024-05-13, BusinessLine: GSET, region: apac
+
+Q: What was the total notional volume traded from May 13 until june 16th for GSET in apac?
+P: DateFrom: 2024-05-13, DateTo: 2024-06-16, BusinessLine: GSET, region: apac
+
+Q: Could you tell me how much was traded in total notional value at NASD by BTIG on May 13th in americas?
+P: DateFrom: 2024-05-13, DateTo: 2024-05-13, ExecutionPoint: NASD, Tuid: BTIG, Region: americas
+
+Q: In emea Can you find out what the total notional traded was on May 13th at NASD by BTIG?
+P: DateFrom: 2024-05-13, DateTo: 2024-05-13, ExecutionPoint: NASD, Tuid: BTIG, Region: emea
+
+Q: Provide me the information about the total notional traded on May 13 on NASD by BTIG in emea?
+P: DateFrom: 2024-05-13, DateTo: 2024-05-13, ExecutionPoint: NASD, Tuid: BTIG, Region: emea
+
+Q: What was the total notional traded in the AMERICAS for SINGLE_SHARES on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: Do you know how much notional was traded in single shares across the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: I'm curious, how much notional was traded in single shares in the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: Can you provide the total notional amount for single shares traded in the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: Do you happen to know the total notional traded for SINGLE_SHARES in the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: Could you find out how much notional was traded in SINGLE_SHARES in the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: I'm wondering about the notional value of single shares traded in the Americas on May 15th, 2024. Do you have that info?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: Hey, do you know how much was traded in single shares in the Americas on May 15th, 2024?
+P: DateFrom: 2024-05-15, DateTo: 2024-05-15, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: How much was traded through the execution point WFAQ by the client SINBCVVR Inc. on June 1st, 2024 in EMEA? (DOUBT NO MENTION OF NOTIONAL)
+P: DateFrom: 2024-06-01, DateTo: 2024-06-01, ExecutionPoint: WFAQ, TuID: 5ZGM, region: EMEA
+
+Q: What was the trading volume for RLVLCMKGX Inc. in EMEA using their StarID on April 20th, 2024? (DOUBT NO MENTION OF NOTIONAL)
+P: DateFrom: 2024-04-20, DateTo: 2024-04-20, Region: EMEA, StarID: 488256
+
+Q: What was the notional amount traded at the execution point WLDS for the business line GSET in APAC on March 5th, 2024?
+P: DateFrom: DateFrom: 2024-03-05, DateTo: 2024-03-05, BusinessLine: GSET, ExecutionPoint: WLDS, Region: APAC
+
+Q: How much was the total notional traded in the APAC region for all business lines on January 1st, 2024?
+P: DateFrom: 2024-01-01, DateTo: 2024-01-01, Region: APAC
+
+Q: What is the total notional traded value in EMEA for the client DYAIFGP Inc. using StarID on February 20th, 2024?
+P: DateFrom: 2024-02-20, DateTo: 2024-02-20, Region: EMEA, StarID: 11207379
+
+Q: Would you be able to tell me the total notional traded in EMEA for the client DYAIFGP Inc. with StarID on February 20th, 2024?
+P: DateFrom: 2024-02-20, DateTo: 2024-02-20, Region: EMEA, StarID: 11207379
+
+Q: Total notional traded in EMEA on February 20th, 2024?
+P: DateFrom: 2024-02-20, DateTo: 2024-02-20, Region: EMEA
+
+Q: Notion volume traded in APAC on February 20th, 2024?
+P: DateFrom: 2024-02-20, DateTo: 2024-02-20, Region: EMEA
+
+Q: Notion volume traded in APAC from Feb 5th, 2023 until Feb 16th 2024?
+P: DateFrom: 2024-02-05, DateTo: 2024-02-16, Region: EMEA
+
+Q: What was the notional traded amount for the business line SINGLE_SHARES in the AMERICAS region on October 21st, 2024?
+P: DateFrom: 2024-10-21, DateTo: 2024-10-21, BusinessLine: SINGLE_SHARES, Region: AMERICAS
+
+Q: How much notional value was traded by QTJFMQAT Inc. with StarID 11236780 at execution point QSTD in AMERICAS on August 3rd, 2024?
+P: DateFrom: 2024-08-03, DateTo: 2024-08-03, ExecutionPoint: QSTD, StarID: 11236780, region: AMERICAS
+
+Q: Can you provide the total notional traded on April 12th, 2024, by all traders using execution point WSPB in the EMEA region?
+P: DateFrom: 2024-04-12, DateTo: 2024-04-12, ExecutionPoint: WSPB, Region: EMEA
+
+Q: What was the notional amount traded on the business line GSET in EMEA yesterday?
+P: DateFrom: yesterday, DateTo: yesterday, BusinessLine: GSET, Region: EMEA
+
+Q: How much notional value was traded through execution point WFAQ 1 week ago in AMERICAS Region?
+P: DateFrom: 1 week ago, DateTo: 1 week ago, ExecutionPoint: WFAQ, Region: AMERICAS
+
+Q: What is the notional amount traded by YQDZV Inc. in APAC Region with TuID 1PQVARRA 5 years ago today?
+P: DateFrom: 5 years ago today, DateTo: 5 years ago today, TuID: 1PQVARRA, Region: APAC
+
+Q: I'm curious about the notional traded by RUUUJJQPVE Inc. with TuID AGLBKUTD on June 6th in APAC. Could you look that up?
+P: DateFrom: June 6th at 8 AM, DateTo: June 6th at 8 AM, Tuid: AGLBKUTD, Region: APAC
+
+Q: Could you provide the details on the notional value traded through execution point UFZJ in APAC region three months ago?
+P: DateFrom: three months ago, DateTo: three months ago, ExecutionPoint: UFZJ
+
+Q: Provide me the notional traded volume from 03-02-2024 to today in APAC region?
+P: DateFrom: 03-02-2024, DateTo: today, Region: APAC
+
+Q: Would you be able to tell me the total notional traded in EMEA for the client DYAIFGP Inc. with StarID on February 20th, 2024?
+P: DateFrom: 2024-02-20, DateTo: 2024-02-20, Region: EMEA, StarID: 11207379
+
+Q: Give me the notional volume traded from 13th may 2024 in the americas region?
+P: DateFrom: 2024-05-13, Region: AMERICAS
+
+Q: Give me the notional volume traded until 13th may 2024 in the americas region?
+P: DateFrom: 2024-05-13, Region: AMERICAS
+
+Q: Can you tell me how much notional was traded yesterday for single shares in the AMERICAS?
+P: DateFrom: yesterday, DateTo: yesterday, Region: AMERICAS, BusinessLine: SINGLE_SHARES
+
+Q: I'd like to know the total notional traded in EMEA for the gset business line 1 week ago.
+P: DateFrom: 1 week ago, DateTo: 1 week ago, Region: EMEA, BusinessLine: GSET
+
+Q: Could you provide the total notional traded for GSET in the AMERICAS region three days ago?
+P: DateFrom: 3 days ago, DateTo: 3 days ago, Region: AMERICAS, BusinessLine: GSET
+
+Q: What's the notional trading value from yesterday 5 years ago for all business lines in the AMERICAS?
+P: DateFrom: yesterday 5 years ago, DateTo: yesterday 5 years ago, Region: AMERICAS
+
+Q: What's the notional trading value from yesterday 1 week ago for all business lines in the AMERICAS?
+P: DateFrom: yesterday 1 week ago, DateTo: yesterday 1 week ago, Region: AMERICAS
+
+
+
+
+
+To be handled:
+
+Q: What was the total notional traded last month in americas on NASD by BTIG?
+P: DateFrom: 2024-04-01, DateTo: 2024-04-30, ExecutionPoint: NASD, Tuid: BTIG, Region: americas
+
+
+
+
+
