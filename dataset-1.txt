@@ -133,9 +133,7 @@ P: DateFrom: yesterday 5 years ago, DateTo: yesterday 5 years ago, Region: AMERI
 Q: What's the notional trading value from yesterday 1 week ago for all business lines in the AMERICAS?
 P: DateFrom: yesterday 1 week ago, DateTo: yesterday 1 week ago, Region: AMERICAS
 
-
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 To be handled:
 
@@ -145,4 +143,6 @@ P: DateFrom: 2024-04-01, DateTo: 2024-04-30, ExecutionPoint: NASD, Tuid: BTIG, R
 
 
 
-
+- \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th))\b
+- \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th)), [1-2][0-9]{3}\b
+- \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th)) [1-2][0-9]{3}\b
