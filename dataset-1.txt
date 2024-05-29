@@ -134,19 +134,124 @@ Q: What's the notional trading value from yesterday 1 week ago for all business 
 P: DateFrom: yesterday 1 week ago, DateTo: yesterday 1 week ago, Region: AMERICAS
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 To be handled:
 
 Q: What was the total notional traded last month in americas on NASD by BTIG?
 P: DateFrom: 2024-04-01, DateTo: 2024-04-30, ExecutionPoint: NASD, Tuid: BTIG, Region: americas
 
-
-
-
 - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th))\b
 - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th)), [1-2][0-9]{3}\b
 - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9](?:st|nd|rd|th)) [1-2][0-9]{3}\b
 - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (?:[1-3]?[0-9])\b
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BusinessLine:
+
+- I need assistance with this particular business line
+- Can you adjust the settings to this business line for me?
+- Please consider this business line for my support request
+- set to businessline 
+- businessline = 
+- BusinessLine:
+- businessline : 
+- This is the business line I am inquiring about
+- For my query, use this as the business line
+- The business line I need help with is this one
+- My question relates to this business line.
+- I’d like to proceed with this business line for my services
+- the business line is 
+- update business line to
+- Use [] as the specified value 
+- new business line is 
+
+ExecutionPoint: 
+
+- Please set the exec_point to WLDS
+- I want to use WFAQ as the exec_point.
+- Can we use UFZJ for the exec_point?
+- Set the execution point parameter to WSPB
+- Change the exec_point to QSTD
+- Configure the exec_point as WLDS.
+- I'd like the exec_point to be WFAQ
+- Please update the exec_point to QSTD
+- The exec_point should be set to WSPB now
+- Switch the exec_point to QSTD,
+- Can you change the exec_point to WSPB
+- WFAQ should be our exec_point now
+- execution point is
+- execution point = 
+- update the execuiton point to 
+- new execution point is 
+
+PrimeID:
+
+- I want to use the primeid 11268647 for the client
+- The primeid 488256 is what I intend to use
+- I will be using the primeid 11207379
+- Use the primeid 11281372 for the client
+- Use the primeid 11281372
+- the primeid 11236780 is the one I choose to use
+- I choose to use the primeid 11268647
+- The primeid 488256 is selected for usage.
+- Utilize the primeid 11207379 for this operation
+- I will be working with the primeid 11281372
+- Update the primeid with the value 11281372
+- Let's go with 11207379 for the parameter
+- Use 11207379 as the specified value.
+- Set 11281372 as the new value for the parameter
+- The value 11207379 should be used here
+- new primeid is 
+
+StarID:
+
+- Set the starid to 67890 
+- use starid 99000 for this request
+- Use starid 55566 for pulling up the information
+- I need details for starid 99900
+- Here's the starid I need: 55667
+- I'd like to continue with starid 11223
+- I’d prefer if you could fetch the details using starid 43210
+- update starid to 
+- starid which i want to use now is 
+- new starid is 
+- switch to using starid 11122
+
+Tuid:
+
+- Utilize TuID 5ZGM
+- Implement features using TuID ON6HO
+- Set the configuration to include TuID ON6HO
+- Set the parameter to the value 5ZGM
+- For this setting, please use ON6HO
+- The correct value for the parameter is A9T5M
+- Please change the parameter to AGLBKUTD
+- I have decided to use 1PQVARRA for the parameter
+- Input AGLBKUTD for the parameter value of Tuid
+- update the parameter tuid to 5ZGM
+- Make sure the parameter is set to 5ZGM
+- Let's go with ON6HO for the parameter. 
+- The value A9T5M is what we'll use
+- Adjust the parameter to AGLBKUTD
+- Use ON6HO as the specified value
+- Update tuid to 
+
+Region:
+
+- I'd like to select the US Region
+- set region to US
+- using region us
+- want to use region emea
+- region = emea
+- region: emea
+- region is ASIA
+- Set my region to APAC
+- I am in the US, so let's go with that region
+- I choose APAC as my region.
+- update by region to us
+- Make sure my region is set to ASIA
+- set my region to apac
+- I’m in the US, so please use that as my region
+- configure my location to emea
 
 
 
