@@ -254,6 +254,49 @@ Region:
 - configure my location to emea
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+"Can you clear all the current slots for me?"
+"Please reset all the slots."
+"I'd like to start over. Could you reset the slots?"
+"Can you empty all the slots, please?"
+"I need all the slots to be cleared. Thanks!"
+"Please wipe all the slots clean."
+"Can you remove all the values from the slots?"
+"I want to reset everything. Can you clear the slots?"
+"Clear out all the slots, please."
+"Can you reset all the slots to their default state?"
+"Please empty all the current slots."
+"I'd like to clear all the slots now."
+"Can you reset all the slots for me?"
+"Please clear all the information in the slots."
+"Can you make sure all the slots are reset?"
+"I need to start fresh. Can you clear all the slots?"
+"Reset all the slots, please."
+"Could you empty out all the slots?"
+"I'd like to have all the slots reset, thanks."
+"Can you clear all the values from the slots for me?"
+"Could you please clear all the current slot values?"
+"I'd appreciate it if you could reset all the slots."
+"Can you erase all the slots for me?"
+"Please remove everything from the slots."
+"I'd like to have all the slots cleared out."
+"Can you reset every slot to empty?"
+"Please reset all slots back to zero."
+"Can you make sure all slot values are cleared?"
+"I'd like to start again. Can you clear all slots?"
+"Clear all slot data, please."
+"Can you reset all slots and start fresh?"
+"Please delete all the values in the slots."
+"Can you make all the slots empty again?"
+"I'd like to reset all the slots, can you do that?"
+"Please clear out the current slots."
+"Can you reset all the slots for a new start?"
+"Please remove all current slot information."
+"I'd like all slots to be reset, thanks."
+"Can you clear all slot entries?"
+"Please reset all slots to their initial state."
+
 
 
 
