@@ -328,3 +328,48 @@ Region:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+import pandas as pd
+import time
+
+# Function to apply to each value
+def sample_function(value):
+    return value + 10
+
+# Reading the CSV
+df = pd.read_csv('file.csv')  # Ensure the file path is correct
+
+# Start the timer
+start_time = time.time()
+
+# Dictionary to store the results
+results = {}
+
+# Iterate through each row in the DataFrame
+for index, row in df.iterrows():
+    value = row['column_name']  # Replace 'column_name' with the actual column name
+    result = sample_function(value)
+    results[value] = result
+
+# Calculate the time taken to create the dictionary
+time_taken = time.time() - start_time
+
+# Display the time taken
+print(f"Time taken to create the dictionary: {time_taken} seconds")
+
+# Example query value also using the same function
+query_value = sample_function(30)  # Adjust this as needed
+
+# Calculate similarities (or differences)
+similarities = {key: abs(query_value - value) for key, value in results.items()}
+
+# Determine the number of neighbors 'k'
+k = 3  # You can adjust this value
+
+# Get top k keys based on smallest differences
+top_k = sorted(similarities.items(), key=lambda x: x[1])[:k]
+
+# Display top k keys and their similarity scores
+print("Top K similar values:")
+for key, similarity in top_k:
+    print(f"Value: {key}, Similarity Score: {similarity}")
+
