@@ -302,5 +302,29 @@ Region:
 \b\d{4}-\d{2}-\d{2}\b
 \b\d{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\b
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+"Could you tell me what features you offer?"
+"What can you do? I’d like to know all the services you provide."
+"I’m curious about your capabilities. What all can you assist me with?"
+"Can you list all the functionalities you're equipped with?"
+"What are the main features you provide?"
+"I’d love to know more about your services. What can you help with?"
+"What sorts of tasks can you handle?"
+"Could you outline the features that make you helpful?"
+"What are all the different things you can do?"
+"Can you give me a rundown of your features?"
+"I’m trying to understand your capabilities. What services do you offer?"
+"What features do you have that could be useful to me?"
+"Can you explain all the functionalities you support?"
+"What's in your toolkit? What can you assist me with?"
+"I'm interested in finding out what all you can do. Could you elaborate?"
+"Could you provide a detailed list of all your features?"
+"What are the different services and features you offer?"
+"I'd like to know what you're capable of. What services do you provide?"
+"Can you detail the full scope of your functionalities?"
+"What are all the things you’re programmed to do?"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
