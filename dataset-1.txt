@@ -325,3 +325,43 @@ def chat():
 
 if __name__ == '__main__':
     app.run(port=8000, debug=True)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import requests
+import json
+
+# Define the API endpoint
+api_url = "http://localhost:8000/chat"
+
+# Function to send a message to the chatbot and get the response
+def send_message(message, sender_id="user1"):
+    payload = {
+        "message": message,
+        "sender_id": sender_id
+    }
+    
+    response = requests.post(api_url, json=payload)
+    
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"Failed to get response from API. Status code: {response.status_code}")
+        print("Response:", response.text)
+        return None
+
+# Main loop to take user input and get chatbot responses
+while True:
+    user_message = input("You: ")
+    
+    if user_message.lower() in ["exit", "quit", "stop"]:
+        print("Ending chat session.")
+        break
+    
+    chat_response = send_message(user_message)
+    
+    if chat_response:
+        for message in chat_response:
+            print(f"Bot: {message['text']}")
+
+
