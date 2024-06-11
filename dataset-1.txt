@@ -296,3 +296,32 @@ Region:
 "Can you clear all slot entries?"
 "Please reset all slots to their initial state."
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+from flask import Flask, request, jsonify
+import requests
+
+app = Flask(__name__)
+
+RASA_SERVER_URL = "http://localhost:5005/webhooks/rest/webhook"
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_message = request.json.get("message")
+    sender_id = request.json.get("sender_id", "default")
+
+    if not user_message:
+        return jsonify({"error": "No message provided"}), 400
+
+    response = requests.post(
+        RASA_SERVER_URL,
+        json={"sender": sender_id, "message": user_message}
+    )
+
+    if response.status_code != 200:
+        return jsonify({"error": "Failed to get response from Rasa"}), 500
+
+    return jsonify(response.json())
+
+if __name__ == '__main__':
+    app.run(port=8000, debug=True)
