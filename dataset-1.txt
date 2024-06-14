@@ -382,3 +382,43 @@ outputs = model.generate(inputs.input_ids, max_length=50)
 response = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 print(response)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Training data for intents and entity extraction is crucial for the performance of a Rasa NLU model.
+
+Intents:
+
+Intents represent the purpose or goal of a user's input. We need to define clear and distinct intents that cover all possible user inputs relevant to our application.
+
+Entities:
+
+Entities are structured pieces of information in user input that are relevant to the intents.
+
+
+Points to be considered while Creating training data:
+
+* While giving training examples for an intent try to cover all the diverse sets of examples of how a user might address that intent, it is advised that we reserve some keywords to an intent and when that keyword is given as input it becomes easy for the model to identify the intent of the input sentence.
+* Try to balance the number of examples across intents to avoid biasing the model towards more frequent intents.
+* Include diverse examples showing different formats and contexts in which an entity can appear to improve the model's ability to recognise entities under varied circumstances.
+* If certain words or phrases mean the same thing in the context of your application, provide synonyms to help the model understand this. This increases the accuracy of entity extraction by mapping diverse inputs to a standard format.
+* Use techniques like paraphrasing or artificially generating training data to increase the volume and diversity of your dataset, especially when you have limited examples this is known as Data Augmentation.
+* But usage of more Synthetic data should be removed. 
+* If you are interested in doing the entity extraction then try to give all the diverse sets of the entity values.
+    * Ex:
+    * For Tuid:
+        * There are two versions of tuids which we need to focus on:
+            * Alphanumeric
+            * Alphabetical
+        * Now we need to first sort the tuids as per the number of chars in the tuids and then for each total character we need to ensure that we have examples included that have both the two versions of tuids.
+    * For Business Line:
+    * For Date:
+    * For StarID:
+    * For PrimeID:
+    * For Client Name:
+    * For Execution Point:
+	
+Reference:
+1. https://rasa.com/docs/rasa/training-data-format
+2. https://rasa.com/docs/rasa/nlu-training-data
+
