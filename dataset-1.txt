@@ -422,3 +422,26 @@ Reference:
 1. https://rasa.com/docs/rasa/training-data-format
 2. https://rasa.com/docs/rasa/nlu-training-data
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import pandas as pd
+
+# Load the CSV file, assuming there is no header
+df = pd.read_csv('tuid.csv', header=None, names=['tuid'])
+
+# Function to categorize each entry
+def categorize(entry):
+    if entry.isalpha():
+        return '0' + entry  # Prefix with '0' to ensure alphabetical entries come first
+    else:
+        return '1' + entry  # Prefix with '1' for alphanumeric entries
+
+# Apply categorization and sorting
+df['sort_key'] = df['tuid'].apply(lambda x: (len(x), categorize(x)))
+df.sort_values('sort_key', inplace=True)
+
+# Remove the temporary sorting key
+df.drop('sort_key', axis=1, inplace=True)
+
+# Write back to the same CSV file
+df.to_csv('tuid.csv', index=False, header=False)
