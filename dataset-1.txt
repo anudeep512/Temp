@@ -426,22 +426,30 @@ Reference:
 
 import pandas as pd
 
-# Load the CSV file, assuming there is no header
+# Load the CSV file, assuming no header and the column name is 'tuid'
 df = pd.read_csv('tuid.csv', header=None, names=['tuid'])
 
-# Function to categorize each entry
-def categorize(entry):
+# Remove duplicates and blanks
+df = df.drop_duplicates().dropna()
+df['tuid'] = df['tuid'].str.strip()
+df = df[df['tuid'] != '']
+
+# Define a function to categorize each entry
+def categorize_entry(entry):
     if entry.isalpha():
-        return '0' + entry  # Prefix with '0' to ensure alphabetical entries come first
+        return 'alphabetic'
+    elif entry.isalnum():
+        return 'alphanumeric'
     else:
-        return '1' + entry  # Prefix with '1' for alphanumeric entries
+        return 'other'
 
-# Apply categorization and sorting
-df['sort_key'] = df['tuid'].apply(lambda x: (len(x), categorize(x)))
-df.sort_values('sort_key', inplace=True)
+# Apply the categorization
+df['category'] = df['tuid'].apply(categorize_entry)
 
-# Remove the temporary sorting key
-df.drop('sort_key', axis=1, inplace=True)
+# Sort by the length of the tuid, then by category, and then alphabetically within the same number of characters
+df = df.sort_values(by=['tuid'], key=lambda x: (x.str.len(), x.map(categorize_entry), x))
 
-# Write back to the same CSV file
+# Save the processed data back to the same CSV file
 df.to_csv('tuid.csv', index=False, header=False)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
