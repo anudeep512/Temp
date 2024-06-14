@@ -453,3 +453,47 @@ df = df.sort_values(by=['tuid'], key=lambda x: (x.str.len(), x.map(categorize_en
 df.to_csv('tuid.csv', index=False, header=False)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import pandas as pd
+
+# Load the CSV file, assuming no header and the column name temporarily set to 'primeid'
+df = pd.read_csv('primeid.csv', header=None, names=['primeid'])
+
+# Remove duplicates and blanks
+df = df.drop_duplicates().dropna()
+df['primeid'] = df['primeid'].str.strip()
+df = df[df['primeid'] != '']
+
+# Convert the entries to integers for sorting
+df['primeid'] = pd.to_numeric(df['primeid'], errors='coerce')
+df = df.dropna()  # Drop any rows that couldn't be converted to numbers
+
+# Sort the DataFrame by the numerical value of 'primeid'
+df = df.sort_values(by='primeid')
+
+# Save the processed data back to the same CSV file
+df.to_csv('primeid.csv', index=False, header=False)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
