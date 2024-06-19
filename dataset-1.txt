@@ -376,7 +376,7 @@ model = AutoModelForCausalLM.from_pretrained(model_name)
 # Prepare the input text
 input_text = "Hello, how are you?"
 inputs = tokenizer(input_text, return_tensors="pt")
-
+        
 # Generate a response
 outputs = model.generate(inputs.input_ids, max_length=50)
 response = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -591,8 +591,113 @@ Reference:
 4. https://nix-united.com/blog/how-to-properly-prepare-your-dataset-for-machine-learning/
 5. https://www.pecan.ai/blog/data-preparation-for-machine-learning/
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import logging
+import re
+from typing import Any, Dict, List, Optional, Text
+
+from rasa.engine.graph import GraphComponent, ExecutionContext
+from rasa.engine.recipes.default_recipe import DefaultV1Recipe
+from rasa.engine.storage.storage import ModelStorage
+from rasa.engine.storage.resource import Resource
+import rasa.shared.utils.io
+import rasa.nlu.utils.pattern_utils as pattern_utils
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.constants import (
+    ENTITIES,
+    ENTITY_ATTRIBUTE_VALUE,
+    ENTITY_ATTRIBUTE_START,
+    ENTITY_ATTRIBUTE_END,
+    TEXT,
+    ENTITY_ATTRIBUTE_TYPE,
+)
+from rasa.nlu.extractors.extractor import EntityExtractorMixin
+
+logger = logging.getLogger(__name__)
 
 
+@DefaultV1Recipe.register(
+    DefaultV1Recipe.ComponentType.ENTITY_EXTRACTOR, is_trainable=True
+)
+class CustomRegexEntityExtractor(RegexEntityExtractor):
+    """Custom extractor that overrides the RegexEntityExtractor for custom functionality."""
+
+    def process(self, messages: List[Message]) -> List[Message]:
+        """Extracts entities from messages and appends them to the attribute.
+
+        If no patterns were found during training, then the given messages will not
+        be modified. In particular, if no `ENTITIES` attribute exists yet, then
+        it will *not* be created.
+
+        If no pattern can be found in the given message, then no entities will be
+        added to any existing list of entities. However, if no `ENTITIES` attribute
+        exists yet, then an `ENTITIES` attribute will be created.
+
+        Returns:
+           the given list of messages that have been modified
+        """
+        if not self.patterns:
+            rasa.shared.utils.io.raise_warning(
+                f"The {self.__class__.__name__} has not been "
+                f"trained properly yet. "
+                f"Continuing without extracting entities via this extractor."
+            )
+            return messages
+
+        for message in messages:
+            # Custom logging for message processing
+            logger.debug(f"Processing message: {message.get(TEXT)}")
+
+            extracted_entities = self._extract_entities(message)
+            
+            # Custom logging for extracted entities
+            logger.debug(f"Extracted entities: {extracted_entities}")
+
+            extracted_entities = self.add_extractor_name(extracted_entities)
+            message.set(
+                ENTITIES,
+                message.get(ENTITIES, []) + extracted_entities,
+                add_to_output=True,
+            )
+        return messages
+
+    def _extract_entities(self, message: Message) -> List[Dict[Text, Any]]:
+        """Extract entities of the given type from the given user message.
+
+        Args:
+            message: a message
+        Returns:
+            a list of dictionaries describing the entities
+        """
+        entities = []
+
+        flags = 0  # default flag
+        if not self.case_sensitive:
+            flags = re.IGNORECASE
+
+        for pattern in self.patterns:
+            matches = re.finditer(pattern["pattern"], message.get(TEXT), flags=flags)
+
+            for match in matches:
+                start_index = match.start()
+                end_index = match.end()
+                entity_value = message.get(TEXT)[start_index:end_index]
+                
+                # Custom processing for the entity value
+                entity_value = entity_value.lower() if not self.case_sensitive else entity_value
+                
+                entities.append(
+                    {
+                        ENTITY_ATTRIBUTE_TYPE: pattern["name"],
+                        ENTITY_ATTRIBUTE_START: start_index,
+                        ENTITY_ATTRIBUTE_END: end_index,
+                        ENTITY_ATTRIBUTE_VALUE: entity_value,
+                    }
+                )
+
+        return entities
 
 
 
