@@ -699,7 +699,36 @@ class CustomRegexEntityExtractor(RegexEntityExtractor):
 
         return entities
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import re
 
+# Define the regex pattern
+pattern = r'\b(client|clientname|name)\b\s+([A-Za-z0-9\s]+(?:,\s+[A-Za-z0-9\s]+)*)'
+
+# Compile the pattern
+regex = re.compile(pattern)
+
+# Example strings
+texts = [
+    "client    apple LLC,     meta ai, alphabet today",
+    "clientname    apple123 LLC",
+    "name    meta ai, alphabet yesterday",
+    "client 12345, abc123"
+]
+
+# Function to check if a name is alphanumeric and not purely numeric
+def is_valid_name(name):
+    return any(c.isalpha() for c in name) and any(c.isalnum() for c in name)
+
+# Extract and split company names
+for text in texts:
+    match = regex.search(text)
+    if match:
+        company_names = match.group(2)
+        company_list = [name.strip() for name in company_names.split(',') if is_valid_name(name.strip())]
+        print(f"Company names: {company_list}")
+    else:
+        print("No match found")
 
 
 
