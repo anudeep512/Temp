@@ -78,7 +78,29 @@ Final Conclusion:
 
 So from the above analysis we can conclude that RapidFuzz's token_set_ratio() is the method suitable for our use case.
 
+1) While this method correctly identified the true name half of the time, it suggests that using frequency-based counting alone may not be sufficiently sensitive to variations in name expressions or abbreviations.
 
+2) This result indicates that the NameMatcher might not be well suited for handling abbreviations or significantly altered strings, which is often the case in colloquial name usage
 
+3) Achieved moderate performance, suggesting it can handle some discrepancies in naming but might struggle with significant abbreviations or altered names.
+
+4) Shows better handling of abbreviations, likely due to focusing on the best matching substring which is effective for matching partial names.
+
+5) Moderately effective, suggesting some capability to match tokenized parts of the names but less effective than other methods.
+
+6) Moderate effectiveness indicates it can handle scrambled words or tokens but may not effectively capture the importance of name order in abbreviated company names.
+
+7) High performance demonstrates its strength in matching names by focusing on shared tokens, making it highly effective for varying abbreviations where key terms are still used.
+
+8) Provides a flexible and adaptive approach, leading to high effectiveness. It adjusts its calculation method based on the input, making it suitable for a broad range of name variations.
+
+9) Moderately effective, balancing speed and accuracy, but may miss nuances that more detailed methods capture.
+
+10) The large model, while robust in linguistic features, may not focus on the nuances of string matching required for abbreviated names.
+
+11) Similar to the large model, the transformer model’s complexity and focus on linguistic context do not translate well to straightforward string matching tasks.
+Uses a statistical approach to measure term importance in documents. The moderate score suggests it captures some aspects of name similarity but lacks the nuanced understanding of name variations.
+
+12) Uses a statistical approach to measure term importance in documents. The moderate score suggests it captures some aspects of name similarity but lacks the nuanced understanding of name variations.
 
 
