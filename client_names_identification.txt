@@ -1,0 +1,84 @@
+Companies often have formal registered names that are lengthy and sometimes complex. However, in everyday communication, these names are frequently abbreviated or altered into more colloquial forms.
+For example , "Samsung Electronics Co., Ltd" is commonly referred to as "Samsung.". These variations pose significant challenges in data processing tasks where matching these colloquial or abbreviated 
+names to their formal counterparts is necessary. As we need to pass the true names to the API for serving the answers to the query posed by the user 
+
+Now the main objective is to find a method that can accurately match abbreviated or colloquially used company names to their formal, registered versions. This involves evaluating different string matching techniques and libraries.
+
+The Following are the methods which I have done an analysis and choosed the best of them for finding the formal counterpart.
+1) Counter
+2) NameMatcher
+3) rapidfuzz - Offers 7 variations
+4) Spacy Large and Transformer
+5) Tf-Idf vectorization
+
+Performance Measurement:
+Each method will be tested against a benchmark dataset consisting of 50 queries, each representing a colloquial or abbreviated company name. The effectiveness of each method will be measured based on its ability to return the correct formal name within the top five results.
+
+About the Methods:
+
+1) Counter:
+- The Counter from Python's collections module is a subclass of dictionary used to count hashable objects
+- It doesn't perform matching itself but is often used to track frequencies of items, which can be leveraged in matching tasks by identifying common or frequent elements.
+
+2) NameMatcher:
+- generally, NameMatcher would be expected to employ some form of fuzzy matching technique, potentially incorporating string comparison algorithms to find best matches based on character similarity and possibly phonetic similarity.
+
+3) rapidfuzz - fuzz.ratio():
+- Calculates the standard Levenshtein distance between two sequences, expressing the similarity as a percentage. The distance measures the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one word into the other.
+
+4) rapidfuzz - fuzz.partial_ratio():
+- Compares subsections of the string to find the optimal partial match. This can be particularly useful for matching shorter strings within longer ones or for when names may be truncated.
+
+5) rapidfuzz - fuzz.partial_token_ratio():
+- Similar to partial_ratio, but it tokenizes the strings and compares the best matching partial tokens, improving matching accuracy when order is not crucial but token inclusion is.
+
+6) rapidfuzz - fuzz.token_sort_ratio():
+- Tokenizes the strings, sorts the tokens alphabetically, and joins them back into a string for comparison.
+- This approach reduces the impact of word order on the similarity score, useful for comparing sentences or longer names.
+
+7) rapidfuzz - fuzz.token_set_ratio():
+- Tokenizes the strings and calculates intersections and the symmetric difference of the token sets.
+- It combines the sorted and unsorted token ratios to score matches, effectively handling cases where the strings are similar but contain additional or missing tokens.
+
+8) rapidfuzz - fuzz.WRatio():
+- A weighted ratio that adjusts the calculation method based on the specifics of the strings involved.
+- It uses a combination of other fuzz methods and adds a scaling factor for cases like differing string lengths and case sensitivity.
+
+9) rapidfuzz - fuzz.Qratio():
+- A quicker version of the simple ratio, maintaining a balance between performance and accuracy.
+- It simplifies some calculations to achieve faster comparisons with slightly reduced detail.
+
+10) Spacy Large and Transformer Models:
+- Large Model: Use statistical ML Models for generating emebeddings 
+- Transformer Model: Uses Transformer architecture for generating emebeddings 
+
+11) TF-IDF Vectorizer:
+- It converts text to a numerical form suitable for processing, weighting terms based on their frequency in a document balanced by their commonness across all documents.
+- This can be used for text similarity by comparing the cosine similarity between the TF-IDF vectors of two texts.
+
+Experiment Results:
+
+|| Method || Matches out of 50 || Effectiveness || Analysis || 
+
+Obvservations:
+From the above results we can see that RapidFuzz shows robust capabilities for handling the complexities of matching abbreviated or colloquially altered company names against their formal versions. 
+For tasks involving string matching in the context of name recognition, with noisy inputs.
+
+In RapidFuzz token_set_ratio() and WRatio() are the best methods for using.
+
+Finding the best method within RapidFuzz:
+
+For this we now change the experiment setting for extracting the top-1 element and checking the score out of 50.
+
+Experiment Results:
+
+|| Method || Matches out of 50 || Effectiveness || Analysis || 
+
+Final Conclusion:
+
+So from the above analysis we can conclude that RapidFuzz's token_set_ratio() is the method suitable for our use case.
+
+
+
+
+
