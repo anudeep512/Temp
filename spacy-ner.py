@@ -37,3 +37,20 @@ def parse_dates(input_text):
 input_text = "Meet me from June 25th to June 30th, or maybe on July 3rd."
 parsed_dates = parse_dates(input_text)
 print("Parsed Dates:", parsed_dates)
+
+import spacy
+
+# Load the spaCy model
+nlp = spacy.load("en_core_web_trf")
+
+def extract_date_entities(text):
+    # Process the text
+    doc = nlp(text)
+    # Extract entities identified as dates
+    dates = [ent.text for ent in doc.ents if ent.label_ == "DATE"]
+    return dates
+
+# Example usage
+input_text = "I have an appointment on June 25th, and another important meeting on July 3rd."
+dates = extract_date_entities(input_text)
+print("Extracted Date Entities:", dates)
