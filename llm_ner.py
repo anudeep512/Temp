@@ -124,5 +124,38 @@ class CustomEntityExtractor(GraphComponent, EntityExtractorMixin):
         # Implement the load logic if necessary
         return cls(config, model_storage, resource)
 
+# recipe: default.v1
 
+# assistant_id: 20240623-192427-figurative-branch
+# language: en
 
+# pipeline:
+# - name: WhitespaceTokenizer
+# - name: RegexFeaturizer
+# - name: LexicalSyntacticFeaturizer
+# - name: CountVectorsFeaturizer
+# - name: CountVectorsFeaturizer
+#   analyzer: char_wb
+#   min_ngram: 1
+#   max_ngram: 4
+# - name: llm_ner.CustomEntityExtractor
+# - name: DIETClassifier
+#   epochs: 100
+#   constrain_similarities: true
+# - name: EntitySynonymMapper
+# - name: ResponseSelector
+#   epochs: 100
+#   constrain_similarities: true
+# - name: FallbackClassifier
+#   threshold: 0.3
+#   ambiguity_threshold: 0.1
+
+# policies:
+# - name: RulePolicy
+# - name: UnexpecTEDIntentPolicy
+#   max_history: 5
+#   epochs: 100
+# - name: TEDPolicy
+#   max_history: 5
+#   epochs: 100
+#   constrain_similarities: true
