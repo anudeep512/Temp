@@ -30,3 +30,14 @@ def find_latest_date(date_list):
 # Example usage
 date_list = ["10th January 2022", "15th February 2022", "12th December 2021", "invalid date", "30th February 2019"]
 print(find_latest_date(date_list))
+
+# Splitting by whitespace
+parts = text.split()
+
+# Further splitting each part by comma
+split_by_comma = []
+for part in parts:
+    split_by_comma.extend(part.split(','))
+
+# Removing any empty strings that might result from splitting
+final_parts = [part for part in split_by_comma if part]
