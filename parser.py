@@ -2,26 +2,31 @@ import ctparser
 import dateparser
 
 def parse_date(input_date):
-    ctparser_result = ctparser.parse(input_date)
-    start_date = ctparser_result.get('start_date')
-    end_date = ctparser_result.get('end_date')
+    # Parse date using ctparse
+    ctparse_result = ctparse(input_date)
     
-    if start_date and end_date:
-        # ctparser returned a range of dates
+    # Check if ctparse gave both a start and an end date
+    if ctparse_result and hasattr(ctparse_result, 'span'):
+        start_date, end_date = ctparse_result.span
         return [start_date, end_date]
-    elif start_date:
-        # ctparser returned a single date occurrence
-        dateparser_result = dateparser.parse(input_date)
-        if dateparser_result:
-            return [dateparser_result]
-        return [start_date]
-    else:
-        # ctparser returned None
-        dateparser_result = dateparser.parse(input_date)
-        if dateparser_result:
-            return [dateparser_result]
+
+    # Parse date using dateparser if ctparse did not give a clear interval
+    dateparser_result = dateparse(input_date)
     
-    return None  # Both ctparser and dateparser returned None
+    if dateparser_result:
+        return [dateparser_result]
+    
+    # Return result of ctparse if dateparser also fails
+    if ctparse_result and hasattr(ctparse_result, 'resolution'):
+        return [ctparse_result.resolution]
+
+    # If both parsers return None, return None
+    return None
+
+# Example usage
+input_date = "from 10th January 2022 to 15th January 2022"
+print(parse_date(input_date))
+
 
 # Example usage
 result = parse_date("10th January 2023")
