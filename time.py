@@ -41,3 +41,27 @@ for part in parts:
 
 # Removing any empty strings that might result from splitting
 final_parts = [part for part in split_by_comma if part]
+
+
+def safe_index(my_list, element):
+    """Returns the index of 'element' in 'my_list' or -1 if it is not found."""
+    try:
+        return my_list.index(element)
+    except ValueError:
+        return -1
+
+# Example usage
+my_list = ['apple', 'banana', 'cherry']
+
+# Get the index of an element
+index_banana = safe_index(my_list, 'banana')
+print('Index of "banana":', index_banana)
+
+# Get the index of an element that is not in the list
+index_orange = safe_index(my_list, 'orange')
+print('Index of "orange":', index_orange)
+
+
+
+
+
