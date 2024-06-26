@@ -61,6 +61,23 @@ print('Index of "banana":', index_banana)
 index_orange = safe_index(my_list, 'orange')
 print('Index of "orange":', index_orange)
 
+import re
+
+def find_substring_occurrences(main_string, substrings):
+    occurrences = []
+    for substring in substrings:
+        # Find all start positions of the substring in the main string
+        starts = [m.start() for m in re.finditer('(?={})'.format(re.escape(substring)), main_string)]
+        # Append each found position along with the substring to the result list
+        occurrences.extend((substring, start) for start in starts)
+    return occurrences
+
+# Example usage:
+main_string = "the quick brown fox jumps over the lazy dog"
+substrings = ["the", "o"]
+result = find_substring_occurrences(main_string, substrings)
+print(result)
+
 
 
 
