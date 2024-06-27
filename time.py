@@ -79,6 +79,15 @@ result = find_substring_occurrences(main_string, substrings)
 print(result)
 
 
+# Define the string and the substring
+main_string = "This is a sample string."
+substring = "sample "
+
+# Remove the substring
+result_string = main_string.replace(substring, "")
+
+# Print the result
+print(result_string)
 
 
 
