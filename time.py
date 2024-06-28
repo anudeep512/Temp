@@ -1,84 +1,85 @@
-import parsedatetime as pdt
-from datetime import datetime
 
-def find_latest_date(date_list):
-    cal = pdt.Calendar()
-    latest_date = None
+## For calculating current week
 
-    for date_str in date_list:
-        try:
-            parsed_date, status = cal.parse(date_str)
-            
-            # Check if parsing was successful
-            if status != 0:
-                # Convert parse result to datetime if it's not already one
-                if isinstance(parsed_date, tuple):
-                    parsed_date = datetime(*parsed_date[:6])
-                
-                # Initialize latest_date or update if the new date is later
-                if latest_date is None or parsed_date > latest_date:
-                    latest_date = parsed_date
-        except Exception as e:
-            print(f"Error parsing '{date_str}': {str(e)}")
+import datetime
 
-    # Return the latest date as a string formatted as YYYY-MM-DD
-    if latest_date:
-        return latest_date.strftime('%Y-%m-%d')
-    else:
-        return "No valid dates found or could not parse any dates."
+# Get today's date
+today = datetime.date.today()
 
-# Example usage
-date_list = ["10th January 2022", "15th February 2022", "12th December 2021", "invalid date", "30th February 2019"]
-print(find_latest_date(date_list))
+# Calculate the most recent Monday (0=Monday, 1=Tuesday, ..., 6=Sunday)
+current_weekday = today.weekday()
+monday_of_this_week = today - datetime.timedelta(days=current_weekday)
 
-# Splitting by whitespace
-parts = text.split()
+# Generate dates from Monday to today
+week_dates = [monday_of_this_week + datetime.timedelta(days=i) for i in range(current_weekday + 1)]
 
-# Further splitting each part by comma
-split_by_comma = []
-for part in parts:
-    split_by_comma.extend(part.split(','))
+# Format dates in MM-DD-YYYY
+formatted_dates = [date.strftime('%m-%d-%Y') for date in week_dates]
 
-# Removing any empty strings that might result from splitting
-final_parts = [part for part in split_by_comma if part]
+print(formatted_dates)
 
+## For previous week
 
-def safe_index(my_list, element):
-    """Returns the index of 'element' in 'my_list' or -1 if it is not found."""
-    try:
-        return my_list.index(element)
-    except ValueError:
-        return -1
+import datetime
 
-# Example usage
-my_list = ['apple', 'banana', 'cherry']
+# Get today's date
+today = datetime.date.today()
 
-# Get the index of an element
-index_banana = safe_index(my_list, 'banana')
-print('Index of "banana":', index_banana)
+# Calculate the most recent Monday (0=Monday, 1=Tuesday, ..., 6=Sunday)
+current_weekday = today.weekday()
+monday_of_this_week = today - datetime.timedelta(days=current_weekday)
 
-# Get the index of an element that is not in the list
-index_orange = safe_index(my_list, 'orange')
-print('Index of "orange":', index_orange)
+# Calculate the Monday of the previous week
+monday_of_last_week = monday_of_this_week - datetime.timedelta(days=7)
+# Calculate the Sunday of the previous week
+sunday_of_last_week = monday_of_last_week + datetime.timedelta(days=6)
 
-import re
+# Generate dates from Monday to Sunday of the previous week
+week_dates = [monday_of_last_week + datetime.timedelta(days=i) for i in range(7)]
 
-def find_substring_occurrences(main_string, substrings):
-    occurrences = []
-    for substring in substrings:
-        # Find all start positions of the substring in the main string
-        starts = [m.start() for m in re.finditer('(?={})'.format(re.escape(substring)), main_string)]
-        # Append each found position along with the substring to the result list
-        occurrences.extend((substring, start) for start in starts)
-    return occurrences
+# Format dates in MM-DD-YYYY
+formatted_dates = [date.strftime('%m-%d-%Y') for date in week_dates]
 
-# Example usage:
-main_string = "the quick brown fox jumps over the lazy dog"
-substrings = ["the", "o"]
-result = find_substring_occurrences(main_string, substrings)
-print(result)
+print(formatted_dates)
 
 
+## For current month 
+import datetime
+
+# Get today's date
+today = datetime.date.today()
+
+# Calculate the first day of the current month
+first_day_of_month = today.replace(day=1)
+
+# Generate dates from the first day of the month to today
+month_dates = [first_day_of_month + datetime.timedelta(days=i) for i in range((today - first_day_of_month).days + 1)]
+
+# Format dates in MM-DD-YYYY
+formatted_dates = [date.strftime('%m-%d-%Y') for date in month_dates]
+
+print(formatted_dates)
+
+
+## previous month
+import datetime
+
+# Get today's date
+today = datetime.date.today()
+
+# Calculate the first day of the previous month
+first_day_of_last_month = (today.replace(day=1) - datetime.timedelta(days=1)).replace(day=1)
+
+# Calculate the last day of the previous month
+last_day_of_last_month = today.replace(day=1) - datetime.timedelta(days=1)
+
+# Generate dates from the first day of the previous month to the last day of the previous month
+previous_month_dates = [first_day_of_last_month + datetime.timedelta(days=i) for i in range((last_day_of_last_month - first_day_of_last_month).days + 1)]
+
+# Format dates in MM-DD-YYYY
+formatted_dates = [date.strftime('%m-%d-%Y') for date in previous_month_dates]
+
+print(formatted_dates)
 
 
 
