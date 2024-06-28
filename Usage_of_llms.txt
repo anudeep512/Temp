@@ -1,0 +1,93 @@
+Large Language Models (LLMs) can be incredibly useful in a chatbot setting the following are some ways which say how we can include LLMs for usage in the application:
+
+For NLU:
+
+Tokenization: LLMs are trained to handle various forms of text and can automatically recognize where to segment text based on the language’s syntax and structure.
+## Example code:
+from langchain.gemini import GeminiModel
+
+# Initialize Gemini-Pro model for tokenization
+model = GeminiModel(model_id="gemini-pro")
+
+# Sample text
+text = "LangChain and Gemini-API make a powerful combination for NLP tasks."
+
+# Tokenization using Gemini-Pro
+tokens = model.tokenize(text)
+
+# Print tokens
+print(tokens)
+
+
+Featurization: LLMs are designed to encode text into high-dimensional vector spaces (embeddings), capturing semantic meanings and syntactic structures.
+from langchain.gemini import GeminiModel
+
+# Initialize Gemini-Pro model for featurization
+model = GeminiModel(model_id="gemini-pro")
+
+# Sample text
+text = "Extracting features from text using Gemini-Pro."
+
+# Extract features
+features = model.embed(text)
+
+# Print feature vector
+print(features)
+
+
+NER: involves identifying and classifying key elements in text into predefined categories we can even make the llm to identify our custom entities.
+from langchain.gemini import GeminiModel
+
+# Initialize Gemini-Pro model for NER
+model = GeminiModel(model_id="gemini-pro")
+
+# Sample text with a custom prompt for recognizing tech companies and programming languages
+prompt = "In this text, identify tech companies and programming languages: " \
+         "Google and Microsoft are major tech companies. Python and Java are popular programming languages."
+
+# Perform NER
+entities = model.ner(prompt)
+
+# Print recognized entities
+print(entities)
+
+Text Classification: Using the features from the text, LLMs can effectively predict the category of the text. 
+from langchain.gemini import GeminiModel
+
+# Initialize the Gemini-Pro model for text classification
+model = GeminiModel(model_id="gemini-pro")
+
+# Define the custom intents
+intents = ["pricing", "product quality", "customer service", "delivery"]
+
+# Sample text
+text = "The delivery was quick and the package was well-protected."
+
+# Construct a prompt that includes the custom intents for classification
+prompt = f"Classify the following customer feedback into one of these categories {intents}: {text}"
+
+# Perform text classification
+classification = model.classify(prompt)
+
+# Print the classified intent
+print(classification)
+
+
+For Response Generation and Personlization:
+
+1) LLMs can generate responses that are contextually relevant and syntactically correct, making interactions more natural and human like
+2) They can keep track of the conversation history to maintain context over the course of an interaction, ensuring that responses are coherent and relevant to previous questions.
+3) By understanding user preferences and past interactions, LLMs can tailor conversations to individual users, improving user satisfaction and engagement.
+
+Now please see the attached code files for including LLM for Entity extraction using Langchain and Gemini. 
+
+So when LLM comes to use we can change tweak the whole rasa pipeline where at the end rasa acts as frontend and LLMs are the nodes in the graph pipeline.
+
+
+
+
+Tokenization: Automatically segment texts based on linguistic structures.
+Featurization: Convert text into semantic-rich vector spaces to capture meanings and syntactic details.
+Named Entity Recognition (NER): Classify key elements in text into predefined categories, including custom entity recognition.
+Text Classification: Predict text categories using extracted features to identify user intents such as pricing, product quality, etc.
+
