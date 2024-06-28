@@ -9,13 +9,17 @@ result_string = main_string.replace(substring, "")
 print(result_string)
 
 # (M/m)on[th] DD[th] [,] [YYYY]
-# \b([Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember)\s*\d{1,2}(st|nd|rd|th)?\s*(,?\s*\d{4})?\b
+# r'\b(?:[Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember)\s*\d{1,2}(?:st|nd|rd|th)?\s*(?:,?\s*\d{4})?\b',
 
 # DD[th] (M/m)on[th] [,] [YYYY]
-# \b\d{1,2}(st|nd|rd|th)?\s+[Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember\s*\d{1,2}(st|nd|rd|th)?\s*(,?\s*\d{4})?\b
+# \b\d{1,2}(?:st|nd|rd|th)?\s+(?:[Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember)\s*\d{1,2}(?:st|nd|rd|th)?\s*(?:,?\s*\d{4})?\b
 
 # YYYY (M/m)on[th] DD[th]
-# \b(\d{4})?\s*([Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember)\s+\d{1,2}(st|nd|rd|th)?\b
+# \b(?:\d{4})?\s*(?:[Jj]anuary|[Ff]ebruary|[Mm]arch|[Aa]pril|[Mm]ay|[Jj]une|[Jj]uly|[Aa]ugust|[Ss]eptember|[Oo]ctober|[Nn]ovember|[Dd]ecember)\s+\d{1,2}(?:st|nd|rd|th)?\b
+
+# MM-DD-YYYY
+# \b(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])-(?:19|20)\d{2}\b
+
 
 import re
 
@@ -87,3 +91,7 @@ print("Modified text:", text)
 
 # Print all matches
 print("All matches:", all_matches)
+
+
+
+
