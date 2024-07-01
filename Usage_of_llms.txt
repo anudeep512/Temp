@@ -134,49 +134,41 @@ def format_table(data, left_padding=10):
     print(border_row)
 
 
-def format_table(data, left_padding=10):
+def format_dict_as_table(data, left_padding=10):
     if not data:
         return " " * left_padding + "No data to display."
     
-    # Assuming all dictionaries have 'Slot Name' and 'Value' as keys
-    keys = ['Slot Name', 'Value']
+    # Extract keys and values from the dictionary
+    keys = list(data.keys())
+    values = list(data.values())
     
-    # Determine the maximum width for each column
-    col_widths = {}
-    for key in keys:
-        max_value_length = max(len(str(d[key])) for d in data)  # Maximum length of values for the key
-        max_key_length = len(key)  # Length of the key
-        max_width = max(max_value_length, max_key_length)
-        col_widths[key] = min(max_width, 20)  # Limit max width to 20 characters
+    # Determine the maximum width for the slot names and values columns
+    max_key_width = max(len(str(key)) for key in keys)
+    max_value_width = max(len(str(value)) for value in values)
+    
+    # Apply a maximum width of 20 characters for each column
+    max_key_width = min(max_key_width, 20)
+    max_value_width = min(max_value_width, 20)
 
     # Build the header and rows with left padding and borders
     padding = " " * left_padding
     border_char = "-"
-    
+
     # Create the header row
-    header_row = padding + "|" + "|".join(f" {key:{col_widths[key]}} " for key in keys) + "|"
-    border_row = padding + "+" + "+".join(border_char * (col_widths[key] + 2) for key in keys) + "+"
+    header_row = padding + "|" + f" {'Slot Name':{max_key_width}} | {'Value':{max_value_width}} |"
+    border_row = padding + "+" + border_char * (max_key_width + 2) + "+" + border_char * (max_value_width + 2) + "+"
     
-    # Print the top border, header, and separator
+    # Print the top border and header
     print(border_row)
     print(header_row)
     print(border_row)  # Separator
 
-    # Print each data row
-    for item in data:
-        row = padding + "|" + "|".join(f" {str(item[key])[:col_widths[key]]:{col_widths[key]}} " for key in keys) + "|"
+    # Print each key-value pair
+    for key, value in data.items():
+        key = str(key)[:max_key_width]  # Truncate if necessary
+        value = str(value)[:max_value_width]  # Truncate if necessary
+        row = padding + "|" + f" {key:{max_key_width}} | {value:{max_value_width}} |"
         print(row)
     
     # Print the bottom border
     print(border_row)
-
-# Example usage:
-data = [
-    {"Slot Name": "Name", "Value": "Alice"},
-    {"Slot Name": "Age", "Value": "30"},
-    {"Slot Name": "Occupation", "Value": "Data Scientist"},
-    {"Slot Name": "City", "Value": "New York"}
-]
-
-format_table(data)
-
