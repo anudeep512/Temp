@@ -97,9 +97,9 @@ Contextual Relevance: Generate syntactically correct and context-aware responses
 Conversation History: Maintain context over interactions to ensure coherence.
 User Tailoring: Adapt conversations based on user preferences and past interactions for personalized communication.
 
-def format_table(data):
+def format_table(data, left_padding=10):
     if not data:
-        return "No data to display."
+        return " " * left_padding + "No data to display."
     
     # Extract keys from the first dictionary (assuming all dictionaries have the same keys)
     keys = data[0].keys()
@@ -112,22 +112,23 @@ def format_table(data):
         max_width = max(max_value_length, max_key_length)
         col_widths[key] = min(max_width, 20)  # Limit max width to 20 characters
 
+    # Build the header and rows with left padding and borders
+    padding = " " * left_padding
+    border_char = "-"
+    
     # Create the header row
-    header_row = "|".join(f"{key:{col_widths[key]}}" for key in keys)
+    header_row = padding + "|" + "|".join(f" {key:{col_widths[key]}} " for key in keys) + "|"
+    border_row = padding + "+" + "+".join(border_char * (col_widths[key] + 2) for key in keys) + "+"
+    
+    # Print the top border, header, and separator
+    print(border_row)
     print(header_row)
-    print("-" * len(header_row))  # Separator
+    print(border_row)  # Separator
 
     # Print each data row
     for item in data:
-        row = "|".join(f"{str(item[key])[:col_widths[key]]:{col_widths[key]}}" for key in keys)
+        row = padding + "|" + "|".join(f" {str(item[key])[:col_widths[key]]:{col_widths[key]}} " for key in keys) + "|"
         print(row)
-
-# Example usage:
-data = [
-    {"Name": "Alice", "Age": 30, "Occupation": "Data Scientist", "City": "New York"},
-    {"Name": "Bob", "Age": 25, "Occupation": "Developer", "City": "San Francisco"},
-    {"Name": "Charlie", "Age": 35, "Occupation": "Designer", "City": "Los Angeles"},
-    {"Name": "David", "Age": 28, "Occupation": "Product Manager", "City": "Seattle"}
-]
-
-format_table(data)
+    
+    # Print the bottom border
+    print(border_row)
